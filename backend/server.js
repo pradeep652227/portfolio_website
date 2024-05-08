@@ -37,6 +37,11 @@ app.post("/post-form", (req, res) => {
   });
 });
 
+/*GET Requests */
+app.get("/",(req,res)=>{
+  res.send("Hi, Server is running");
+})
+
 app.listen(PORT, () => {
   console.log("Server is up and running on PORT=",PORT);
 });

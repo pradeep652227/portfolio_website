@@ -2,7 +2,7 @@
     "rewrites": [
       {
         "source": "/post-form",
-        "destination": "https://blog-app-backend-navy-beta.vercel.app/post-signup"
+        "destination": "https://portfolio-website-backend-eight.vercel.app/post-form"
       }
     ]
   }
