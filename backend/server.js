@@ -8,11 +8,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true })); //body-parser enabled
 app.use(express.json()); //parsing JSON (stringified) objects in the request bodies
 
-/*POST Requests*/
-app.post("/post-form", (req, res) => {
-  const formData = req.body;
+async function sendData(formData){
   let transporter = nodemailer.createTransport({
-    service:"hotmail",
+    service: "hotmail",
     auth: {
       user: String(process.env.USER),
       pass: String(process.env.PASSWORD),
@@ -26,24 +24,43 @@ app.post("/post-form", (req, res) => {
     text: `Name= ${formData.name}\nEmail= ${formData.email}\nMessage= ${formData.message}`,
   };
 
-  transporter.sendMail(mailOptions, (err, info) => {
-    if (err) {
-      console.log("Error in sending email", err);
-      res.send(false);
-    } else {
-      console.log("Email sent", info.response);
-      res.send(true);
-    }
-  });
+  await new Promise((resolve, reject) => {
+    // send mail
+    transporter.sendMail(mailOptions, (err, info) => {
+        if (err) {
+            console.error(err);
+            reject(err);
+        } else {
+            console.log(info);
+            resolve(info);
+        }
+    });
+});
+
+  // transporter.sendMail(mailOptions, (err, info) => {
+  //   if (err) {
+  //     console.log("Error in sending email", err);
+  //     return false;
+  //   } else {
+  //     console.log("Email sent", info.response);
+  //     return true;
+  //   }
+  // });
+}
+/*POST Requests*/
+app.post("/post-form", (req, res) => {
+  const formData = req.body;
+  const returnVal=sendData(formData);
+  res.send(returnVal);
 });
 
 /*GET Requests */
-app.get("/",(req,res)=>{
+app.get("/", (req, res) => {
   res.send("Hi, Server is running");
-})
+});
 
 app.listen(PORT, () => {
-  console.log("Server is up and running on PORT=",PORT);
+  console.log("Server is up and running on PORT=", PORT);
 });
 
 export default app;
