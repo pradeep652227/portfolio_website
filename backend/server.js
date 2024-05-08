@@ -9,6 +9,11 @@ app.use(express.urlencoded({ extended: true })); //body-parser enabled
 app.use(express.json()); //parsing JSON (stringified) objects in the request bodies
 
 async function sendData(formData){
+
+}
+/*POST Requests*/
+app.post("/post-form", async (req, res) => {
+  const formData = req.body;
   let transporter = nodemailer.createTransport({
     service: "hotmail",
     auth: {
@@ -50,6 +55,8 @@ async function sendData(formData){
     });
 });
 
+res.send(true);
+
   // transporter.sendMail(mailOptions, (err, info) => {
   //   if (err) {
   //     console.log("Error in sending email", err);
@@ -59,12 +66,7 @@ async function sendData(formData){
   //     return true;
   //   }
   // });
-}
-/*POST Requests*/
-app.post("/post-form", async (req, res) => {
-  const formData = req.body;
-  const returnVal=await sendData(formData);
-  res.send(returnVal);
+
 });
 
 /*GET Requests */
