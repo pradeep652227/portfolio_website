@@ -8,14 +8,13 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true })); //body-parser enabled
 app.use(express.json()); //parsing JSON (stringified) objects in the request bodies
 
-async function sendData(formData){
-
-}
 /*POST Requests*/
 app.post("/post-form", async (req, res) => {
   const formData = req.body;
   let transporter = nodemailer.createTransport({
-    service: "hotmail",
+    port:465,
+    host:"smtp-mail.outlook.com",
+    secure:true,
     auth: {
       user: String(process.env.USER),
       pass: String(process.env.PASSWORD),

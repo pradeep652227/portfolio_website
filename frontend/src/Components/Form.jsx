@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {Button} from "./imports-components"
+import { Button } from "./imports-components";
+import emailjs from "@emailjs/browser";
 
 export default function Form() {
   const [formData, setFormData] = useState({
@@ -8,10 +9,16 @@ export default function Form() {
     email: "",
     message: "",
   });
-  const inputClasses =
-    "border-2 border-slate-400 rounded-md p-2 block w-1/3";
+  useEffect(() => {
+    emailjs.init(String(import.meta.env.VITE_EMAIL_PUBLIC_KEY));
+  }, []);
+
+  const inputClasses = "border-2 border-slate-400 rounded-md p-2 block w-1/3";
   return (
-    <form className="space-y-2 flex flex-col items-center" onSubmit={submitForm}>
+    <form
+      className="space-y-2 flex flex-col items-center"
+      onSubmit={submitForm}
+    >
       <input
         type="text"
         placeholder="Name..."
@@ -46,18 +53,30 @@ export default function Form() {
     setFormData((prevVal) => ({ ...prevVal, [name]: value }));
   }
 
- async  function submitForm(e) {
+  async function submitForm(e) {
     e.preventDefault();
+    const serviceId = String(import.meta.env.VITE_SERVICE_ID);
+    const templateId = String(import.meta.env.VITE_TEMPLATE_ID);
     try {
-     const result=await axios.post("/post-form", formData);
-     if(result){
-      console.log("Success!!",result);
-      window.alert("/Form Details Sent!!");
-     }else{
-      window.alert("/Backend Server Error!!");
-     }
+      await emailjs.send(serviceId, templateId, {
+        from_name: formData.name,
+        user_email: formData.email,
+        message: formData.message,
+      });
+      alert("email successfully sent check inbox");
     } catch (error) {
-      window.alert(error.message);
-    }
+      console.log(error);
+    } 
+    // try {
+    //   const result = await axios.post("/post-form", formData);
+    //   if (result) {
+    //     console.log("Success!!", result);
+    //     window.alert("/Form Details Sent!!");
+    //   } else {
+    //     window.alert("/Backend Server Error!!");
+    //   }
+    // } catch (error) {
+    //   window.alert(error.message);
+    // }
   }
 }
