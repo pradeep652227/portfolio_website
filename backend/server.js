@@ -61,9 +61,9 @@ async function sendData(formData){
   // });
 }
 /*POST Requests*/
-app.post("/post-form", (req, res) => {
+app.post("/post-form", async (req, res) => {
   const formData = req.body;
-  const returnVal=sendData(formData);
+  const returnVal=await sendData(formData);
   res.send(returnVal);
 });
 
