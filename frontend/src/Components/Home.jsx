@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import {
   ContainerMain,
   Button,
@@ -9,13 +12,16 @@ import { Link } from "react-router-dom";
 import { briefs } from "../jsFiles/project-briefs";
 
 export default function Home() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const skillsImgsStyles = { width: "60px" };
   const skillsImgsClasses =
     "p-1 rounded-xl w-fit shadow-xl hover:shadow-2xl duration-200 shadow-gray-500";
   const imageNames1 = ["react", "node", "express", "mongodb"];
   const imageNames2 = ["html", "css", "javascript"];
   return (
-    <div id="home" className="pb-2">
+    <div id="home" className="">
       <div
         id="home-top-part"
         className="lg:px-48 grid grid-cols-1 sm:grid-cols-2 gap-x-0 border-black comfortaa bg-lime-100"
@@ -29,7 +35,15 @@ export default function Home() {
           <h1 className="text-2xl sm:text-3xl mt-2">
             Full Stack Developer | Computer Science Graduate
           </h1>
-          <a href="/public/docs/Resume__Pradeep.pdf" rel="noopener noreffer" target="_blank"><Button>My Resume</Button></a>
+          <a
+            href="/public/docs/Resume__Pradeep.pdf"
+            rel="noopener noreffer"
+            target="_blank"
+          >
+            <Button data-aos="fade-left" data-aos-duration="500">
+              My Resume
+            </Button>
+          </a>
         </div>
       </div>
       <ContainerMain>
@@ -54,7 +68,12 @@ export default function Home() {
                   </div>
                   <div className="mt-1 flex flex-wrap justify-center gap-x-4 gap-y-4 p-4">
                     {imageNames2.map((image) => (
-                      <div key={image} className={skillsImgsClasses}>
+                      <div
+                        data-aos="fade-down"
+                        data-aos-duration="600"
+                        key={image}
+                        className={skillsImgsClasses}
+                      >
                         <img
                           style={skillsImgsStyles}
                           src={`images/${image}.png`}
@@ -66,10 +85,18 @@ export default function Home() {
                 <div id="skills-2">
                   <h1 className="text-center text-2xl">Programming</h1>
                   <div className="flex flex-wrap justify-center gap-x-4 gap-y-4 p-4">
-                    <div className={skillsImgsClasses}>
+                    <div
+                      data-aos="fade-down"
+                      data-aos-duration="600"
+                      className={skillsImgsClasses}
+                    >
                       <img style={skillsImgsStyles} src="images/c++.png" />
                     </div>
-                    <div className={skillsImgsClasses}>
+                    <div
+                      data-aos="fade-down"
+                      data-aos-duration="600"
+                      className={skillsImgsClasses}
+                    >
                       <img style={skillsImgsStyles} src="images/c.png" />
                     </div>
                   </div>
@@ -82,12 +109,14 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="work">
+          <section id="work" className="my-12">
             <h1 className="briem-hand text-4xl text-center py-2 mt-4 w-1/3 mx-auto">
               Projects...
             </h1>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-4">
               <HomeProjects
+                data-aos="fade-right"
+                data-aos-duration="600"
                 title="Full Stack Blog Application"
                 brief={briefs[0]}
                 skills={["React JS", "Node JS", "Express JS", "Mongo DB"]}
@@ -96,13 +125,18 @@ export default function Home() {
                 codeUrl="https://github.com/pradeep652227/Full-Stack-Blog-App"
               />
               <HomeProjects
+                data-aos="fade-down"
+                data-aos-duration="600"
                 title="Authentication and Security"
                 brief={briefs[1]}
                 skills={["Node JS", "Express JS", "Mongo DB", "EJS", "OAuth"]}
-                isLive={false}
+                isLive={true}
+                liveUrl="https://authentication-and-security.onrender.com/"
                 codeUrl="https://github.com/pradeep652227/Authentication-And-Security"
               />
               <HomeProjects
+                data-aos="fade-left"
+                data-aos-duration="600"
                 title="To Do App NodeJS"
                 brief={briefs[2]}
                 skills={["Node JS", "Express JS", "Mongo DB", "EJS"]}
@@ -111,7 +145,7 @@ export default function Home() {
               />
             </div>
           </section>
-          <section id="about" className="bg-lime-100">
+          <section id="about" className="bg-lime-100 mb-6">
             <h1 className="briem-hand text-4xl text-center py-2 mt-4 w-1/3 mx-auto">
               About Me...
             </h1>
@@ -125,7 +159,7 @@ export default function Home() {
               implementation, and debugging strategies.
             </p>
           </section>
-          <section id="contact">
+          <section id="contact" className="mb-6">
             <h1 className="briem-hand text-4xl text-center py-2 mt-4 w-1/3 mx-auto">
               Contact...
             </h1>

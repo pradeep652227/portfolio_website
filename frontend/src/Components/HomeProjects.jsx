@@ -9,9 +9,10 @@ export default function HomeProjects({
   isLive,
   liveUrl,
   codeUrl,
+  ...props
 }) {
   return (
-    <div className="shadow-xl hover:shadow-2xl p-2 border-2 round-xl">
+    <div className="shadow-xl hover:shadow-2xl p-2 border-2 round-xl" {...props}>
       <h1 className="project-title text-2xl">{title}</h1>
       <img />
       <div className="project-brief">

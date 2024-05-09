@@ -65,7 +65,7 @@ export default function Form() {
       });
       alert("email successfully sent check inbox");
     } catch (error) {
-      console.log(error);
+      alert(error.message);
     } 
     // try {
     //   const result = await axios.post("/post-form", formData);
