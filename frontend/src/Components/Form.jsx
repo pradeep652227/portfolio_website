@@ -26,6 +26,7 @@ export default function Form() {
         value={formData.name}
         onChange={(e) => handleChange(e)}
         className={inputClasses}
+        required
       />
       <input
         type="email"
@@ -34,6 +35,7 @@ export default function Form() {
         value={formData.email}
         onChange={(e) => handleChange(e)}
         className={inputClasses}
+        required
       />
       <textarea
         placeholder="Message..."

@@ -45,7 +45,7 @@ export default function Header() {
     <div className="bg-lime-50">
       <ContainerMain>
         <header id="header" className="py-2 comfortaa">
-          <div className="flex flex-wrap justify-between">
+          <div className="flex flex-wrap justify-between gap-x-10">
             <div className="logo">
               <Link to="/">
                 <img className="rounded-md" style={logoStyles} src={logoUrl} />
