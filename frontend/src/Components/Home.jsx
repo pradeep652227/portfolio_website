@@ -36,7 +36,9 @@ export default function Home() {
             Full Stack Developer | Computer Science Graduate
           </h1>
           <a
-            href="/public/docs/Resume__Pradeep.pdf" download
+            href="https://drive.google.com/file/d/13UXJUrqsJ17agFCZxT7Nnp-sQ6UhdMiy/view?usp=drive_link"
+            rel="noopener noreffer"
+            target="_blank"
           >
             <Button data-aos="fade-left" data-aos-duration="500">
               My Resume
