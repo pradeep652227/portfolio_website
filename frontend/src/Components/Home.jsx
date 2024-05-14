@@ -140,7 +140,8 @@ export default function Home() {
                 title="To Do App NodeJS"
                 brief={briefs[2]}
                 skills={["Node JS", "Express JS", "Mongo DB", "EJS"]}
-                isLive={false}
+                isLive={true}
+                liveUrl="https://to-do-list-version2-0.onrender.com/"
                 codeUrl="https://github.com/pradeep652227/To-Do-List-version2.0"
               />
             </div>
