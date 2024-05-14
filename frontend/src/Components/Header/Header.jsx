@@ -57,7 +57,7 @@ export default function Header() {
                   className="mb-2 !p-0 !px-4 !py-2 bg-stone-400"
                   onClick={() => setShowNavBar((prevValue) => !prevValue)}
                 >
-                 <img src="public/images/menu.png" width="30px" height="30px"/>
+                 <img src="images/menu.png" width="30px" height="30px"/>
                 </Button>
               )}
 
