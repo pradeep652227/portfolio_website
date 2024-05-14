@@ -54,10 +54,10 @@ export default function Header() {
             <div>
               {showNavBtn && (
                 <Button
-                  className="mb-2 bg-slate-200 hover:bg-initial"
+                  className="mb-2 !p-0 !px-4 !py-2 bg-stone-400"
                   onClick={() => setShowNavBar((prevValue) => !prevValue)}
                 >
-                  Navigation
+                 <img src="public/images/menu.png" width="30px" height="30px"/>
                 </Button>
               )}
 
