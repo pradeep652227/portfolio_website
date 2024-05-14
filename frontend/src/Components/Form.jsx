@@ -13,7 +13,7 @@ export default function Form() {
     emailjs.init(String(import.meta.env.VITE_EMAIL_PUBLIC_KEY));
   }, []);
 
-  const inputClasses = "border-2 border-slate-400 rounded-md p-2 block w-1/3";
+  const inputClasses = "border-2 border-slate-400 rounded-md p-2 block w-11/12 sm:w-2/3 md:w-1/3";
   return (
     <form
       className="space-y-2 flex flex-col items-center"

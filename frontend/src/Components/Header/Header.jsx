@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import { ContainerMain, Socials } from "../imports-components";
+import { Button, ContainerMain, Socials } from "../imports-components";
 
-export default function header() {
+export default function Header() {
+  const [showNavBtn, setShowNavBtn] = useState(false);
+  const [showNavBar, setShowNavBar] = useState(true);
+  useEffect(() => {
+    let vw = document.documentElement.clientWidth;
+    if (vw <= "600") {
+      console.log(`vw= ${vw}`);
+      setShowNavBtn(true);
+      setShowNavBar(false);
+    } else {
+      console.log(`vw= ${vw}`);
+      setShowNavBtn(false);
+    }
+  }, []);
   const options = [
     {
       navName: "Home",
@@ -27,35 +40,45 @@ export default function header() {
   const logoStyles = { width: "50px", height: "50px" };
   const logoUrl =
     "https://cdn.pixabay.com/photo/2017/01/08/21/37/flame-1964066_960_720.png";
+
   return (
     <div className="bg-lime-50">
-
-
-    <ContainerMain>
-      <header id="header" className="py-2 comfortaa">
-        <div className="flex flex-wrap justify-between">
-          <div className="logo">
-            <Link to="/">
-              <img className="rounded-md" style={logoStyles} src={logoUrl} />
-            </Link>
-          </div>
-          <div>
-            <ul className="flex flex-wrap flex-col sm:flex-row gap-2">
-              {options.map((option) => (
-                <HashLink
-                  className={`${navClasses}`}
-                  key={option.navName}
-                  to={option.slug}
+      <ContainerMain>
+        <header id="header" className="py-2 comfortaa">
+          <div className="flex flex-wrap justify-between">
+            <div className="logo">
+              <Link to="/">
+                <img className="rounded-md" style={logoStyles} src={logoUrl} />
+              </Link>
+            </div>
+            <div>
+              {showNavBtn && (
+                <Button
+                  className="mb-2 bg-slate-200 hover:bg-initial"
+                  onClick={() => setShowNavBar((prevValue) => !prevValue)}
                 >
-                  <li>{option.navName}</li>
-                </HashLink>
-              ))}
-            </ul>
+                  Navigation
+                </Button>
+              )}
+
+              {showNavBar && (
+                <ul className="flex flex-wrap flex-col sm:flex-row gap-2">
+                  {options.map((option) => (
+                    <HashLink
+                      className={`${navClasses}`}
+                      key={option.navName}
+                      to={option.slug}
+                    >
+                      <li>{option.navName}</li>
+                    </HashLink>
+                  ))}
+                </ul>
+              )}
+            </div>
+            <Socials imagesStylesObj={{ width: "30px" }} />
           </div>
-          <Socials imagesStylesObj={{width:"30px"}}  />
-        </div>
-      </header>
-    </ContainerMain>
+        </header>
+      </ContainerMain>
     </div>
   );
 }
