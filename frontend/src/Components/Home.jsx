@@ -37,8 +37,7 @@ export default function Home() {
           </h1>
           <a
             href="/public/docs/Resume__Pradeep.pdf"
-            rel="noopener noreffer"
-            target="_blank"
+           
           >
             <Button data-aos="fade-left" data-aos-duration="500">
               My Resume
