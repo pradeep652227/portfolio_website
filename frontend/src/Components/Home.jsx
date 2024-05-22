@@ -36,7 +36,7 @@ export default function Home() {
             Full Stack Developer | Computer Science Graduate
           </h1>
           <a
-            href="https://drive.google.com/file/d/13UXJUrqsJ17agFCZxT7Nnp-sQ6UhdMiy/view?usp=sharing"
+            href="https://drive.google.com/file/d/1d5_YbklsR2CQfTCYENtnDbZTw0FvMGiA/view?usp=sharing"
             rel="noopener noreffer"
             target="_blank"
           >
