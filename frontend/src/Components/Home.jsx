@@ -127,15 +127,16 @@ export default function Home() {
               <HomeProjects
                 data-aos="fade-down"
                 data-aos-duration="600"
-                title="Authentication and Security"
+                title="Full Stack Asset Management Application"
                 brief={briefs[1]}
-                skills={["Node JS", "Express JS", "Mongo DB", "EJS", "OAuth"]}
+                skills={["React JS", "Node JS", "Express JS", "Mongo DB"]}
                 isLive={true}
-                liveUrl="https://authentication-and-security.onrender.com/"
-                codeUrl="https://github.com/pradeep652227/Authentication-And-Security"
+                liveUrl="https://asset-management-application-frontend.vercel.app/"
+                codeUrl="https://github.com/pradeep652227/asset-management-application"
               />
+              
               <HomeProjects
-                data-aos="fade-left"
+                data-aos="fade-down"
                 data-aos-duration="600"
                 title="To Do App NodeJS"
                 brief={briefs[2]}
@@ -143,6 +144,16 @@ export default function Home() {
                 isLive={true}
                 liveUrl="https://to-do-list-version2-0.onrender.com/"
                 codeUrl="https://github.com/pradeep652227/To-Do-List-version2.0"
+              />
+              <HomeProjects
+                data-aos="fade-left"
+                data-aos-duration="600"
+                title="Authentication and Security"
+                brief={briefs[3]}
+                skills={["Node JS", "Express JS", "Mongo DB", "EJS", "OAuth"]}
+                isLive={true}
+                liveUrl="https://authentication-and-security.onrender.com/"
+                codeUrl="https://github.com/pradeep652227/Authentication-And-Security"
               />
             </div>
           </section>
