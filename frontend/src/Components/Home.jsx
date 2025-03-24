@@ -70,7 +70,7 @@ const Achievements = () => (
 // ----- Home Component -----
 export default function Home() {
   return (
-    <div className="min-h-screen font-sans bg-gray-50 text-gray-800">
+    <div className="min-h-screen flex flex-col justify-center font-sans bg-gray-50 text-gray-800">
       {/* Main Content in Grid */}
       <main className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 justify-center gap-4">
         {/* Left Column (Profile / Title) */}
@@ -115,12 +115,6 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Lower Section with Experience, Projects, and Contact */}
-      <section className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-        <ExperienceSection />
-        <ProjectsSection />
-        <ContactSection />
-      </section>
     </div>
   )
 }
