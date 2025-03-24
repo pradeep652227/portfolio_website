@@ -1,206 +1,127 @@
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+// ----- Social Links Styling -----
+const socialImgStyles = { width: "60px" }
+const socialImgClasses = "p-1 rounded-xl w-fit shadow-xl hover:shadow-2xl duration-200 shadow-gray-500"
 
-import {
-  ContainerMain,
-  Button,
-  HomeProjects,
-  Form,
-} from "./imports-components";
-import { Link } from "react-router-dom";
-import { briefs } from "../jsFiles/project-briefs";
+// ----- Other Sections -----
+const ExperienceSection = () => (
+  <div className="p-4 bg-white shadow-md rounded-lg hover:shadow-xl transition duration-300">
+    <h3 className="text-xl font-semibold mb-2 text-indigo-700">Experience</h3>
+    <p className="text-sm text-gray-600">Overview of your roles, responsibilities, and achievements.</p>
+  </div>
+)
 
-export default function Home() {
-  useEffect(() => {
-    AOS.init();
-  }, []);
-  const skillsImgsStyles = { width: "60px" };
-  const skillsImgsClasses =
-    "p-1 rounded-xl w-fit shadow-xl hover:shadow-2xl duration-200 shadow-gray-500";
-  const imageNames1 = ["react", "node", "express", "mongodb"];
-  const imageNames2 = ["html", "css", "javascript"];
-  return (
-    <div id="home" className="">
-      <div
-        id="home-top-part"
-        className="lg:px-48 grid grid-cols-1 sm:grid-cols-2 gap-x-0 border-black comfortaa bg-lime-100"
-      >
-        <img
-          src="images/profile_pic.png"
-          className="lg:w-9/12 mix-blend-multiply"
-        />
-        <div className="sm:self-center text-center">
-          <h1 className="text-3xl sm:text-5xl">Pradeep Gaur</h1>
-          <h1 className="text-2xl sm:text-3xl mt-2">
-            Full Stack Developer | Computer Science Graduate
-          </h1>
-          <a
-            href="https://drive.google.com/file/d/1d5_YbklsR2CQfTCYENtnDbZTw0FvMGiA/view?usp=sharing"
-            rel="noopener noreffer"
-            target="_blank"
-          >
-            <Button data-aos="fade-left" data-aos-duration="500">
-              My Resume
-            </Button>
-          </a>
-        </div>
-      </div>
-      <ContainerMain>
-        <div id="home-mid">
-          <section>
-            <h1 className="briem-hand text-4xl text-center py-2 mt-4 w-1/3 mx-auto">
-              Skills...
-            </h1>
-            <div className="skills-box rounded-xl mt-2">
-              <div className="grid grid-cols-1 sm:grid-cols-2">
-                <div id="skills-1">
-                  <h1 className="text-center text-2xl">Web Development</h1>
-                  <div className="flex flex-wrap justify-center gap-x-4 gap-y-4 p-4">
-                    {imageNames1.map((image) => (
-                      <div key={image} className={skillsImgsClasses}>
-                        <img
-                          style={skillsImgsStyles}
-                          src={`images/${image}.png`}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-1 flex flex-wrap justify-center gap-x-4 gap-y-4 p-4">
-                    {imageNames2.map((image) => (
-                      <div
-                        data-aos="fade-down"
-                        data-aos-duration="600"
-                        key={image}
-                        className={skillsImgsClasses}
-                      >
-                        <img
-                          style={skillsImgsStyles}
-                          src={`images/${image}.png`}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div id="skills-2">
-                  <h1 className="text-center text-2xl">Programming</h1>
-                  <div className="flex flex-wrap justify-center gap-x-4 gap-y-4 p-4">
-                    <div
-                      data-aos="fade-down"
-                      data-aos-duration="600"
-                      className={skillsImgsClasses}
-                    >
-                      <img style={skillsImgsStyles} src="images/c++.png" />
-                    </div>
-                    <div
-                      data-aos="fade-down"
-                      data-aos-duration="600"
-                      className={skillsImgsClasses}
-                    >
-                      <img style={skillsImgsStyles} src="images/c.png" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+const ProjectsSection = () => (
+  <div className="p-4 bg-white shadow-md rounded-lg hover:shadow-xl transition duration-300">
+    <h3 className="text-xl font-semibold mb-2 text-indigo-700">Projects</h3>
+    <p className="text-sm text-gray-600">Showcase of your personal or professional projects.</p>
+  </div>
+)
 
-              {/* <div className="flex justify-center my-1">
-                <Button>Browse More...</Button>
-              </div> */}
-            </div>
-          </section>
+const ContactSection = () => (
+  <div className="p-4 bg-white shadow-md rounded-lg hover:shadow-xl transition duration-300">
+    <h3 className="text-xl font-semibold mb-2 text-indigo-700">Contact</h3>
+    <p className="text-sm text-gray-600">Preferred contact details (email, LinkedIn, etc.).</p>
+  </div>
+)
 
-          <section id="work" className="my-12">
-            <h1 className="briem-hand text-4xl text-center py-2 mt-4 w-1/3 mx-auto">
-              Projects...
-            </h1>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-4">
-              <HomeProjects
-                data-aos="fade-right"
-                data-aos-duration="600"
-                title="Full Stack Blog Application"
-                brief={briefs[0]}
-                skills={["React JS", "Node JS", "Express JS", "Mongo DB"]}
-                isLive={true}
-                liveUrl="https://blog-app-frontend-gray.vercel.app/"
-                codeUrl="https://github.com/pradeep652227/Full-Stack-Blog-App"
-              />
-              <HomeProjects
-                data-aos="fade-down"
-                data-aos-duration="600"
-                title="Full Stack Asset Management Application"
-                brief={briefs[1]}
-                skills={["React JS", "Node JS", "Express JS", "Mongo DB"]}
-                isLive={true}
-                liveUrl="https://asset-management-application-frontend.vercel.app/"
-                codeUrl="https://github.com/pradeep652227/asset-management-application"
-              />
-              
-              <HomeProjects
-                data-aos="fade-down"
-                data-aos-duration="600"
-                title="To Do App NodeJS"
-                brief={briefs[2]}
-                skills={["Node JS", "Express JS", "Mongo DB", "EJS"]}
-                isLive={true}
-                liveUrl="https://to-do-list-version2-0.onrender.com/"
-                codeUrl="https://github.com/pradeep652227/To-Do-List-version2.0"
-              />
-              <HomeProjects
-                data-aos="fade-left"
-                data-aos-duration="600"
-                title="Authentication and Security"
-                brief={briefs[3]}
-                skills={["Node JS", "Express JS", "Mongo DB", "EJS", "OAuth"]}
-                isLive={true}
-                liveUrl="https://authentication-and-security.onrender.com/"
-                codeUrl="https://github.com/pradeep652227/Authentication-And-Security"
-              />
-            </div>
-          </section>
-          <section id="about" className="bg-lime-100 mb-6">
-            <h1 className="briem-hand text-4xl text-center py-2 mt-4 w-1/3 mx-auto">
-              About Me...
-            </h1>
-
-            <p className="p-4 text-justify text-lg">
-              Professional Computer Science Geek adept at developing full-stack
-              applications. Demonstrates exceptional time-management and
-              leadership skills in every step of the software development
-              process. Successfully resolves complex problems through a
-              proactive approach, utilizing a combination of learning,
-              implementation, and debugging strategies.
-            </p>
-          </section>
-          <section id="contact" className="mb-6">
-            <h1 className="briem-hand text-4xl text-center py-2 mt-4 w-1/3 mx-auto">
-              Contact...
-            </h1>
-            <div className="flex flex-wrap justify-center gap-4 text-lg">
-              <div className="bg-gray-200 shadow-xl p-4 rounded-xl w-fit">
-                <img
-                  src="images/location.png"
-                  style={{ width: "30px" }}
-                  className="float-left mr-1"
-                />
-                Jaipur, Rajasthan, 302012
-              </div>
-              <div className="bg-gray-200 shadow-xl p-4 rounded-xl w-fit">
-                <a href="mailto:ps652227@gmail.com">
-                  <img
-                    src="images/email.png"
-                    style={{ width: "30px" }}
-                    className="float-left mr-1"
-                  />
-                  ps652227@gmail.com
-                </a>
-              </div>
-            </div>
-            <div className="mt-6">
-              <Form />
-            </div>
-          </section>
-        </div>
-      </ContainerMain>
+const SocialLinks = () => (
+  <div className="flex flex-col items-center">
+    <h1 className="text-2xl font-bold mb-4 text-indigo-700">Connect</h1>
+    <div className="flex flex-wrap justify-center gap-4">
+      <a href="https://www.linkedin.com/in/pradeep-gaur-0384331a1/" target="_blank" rel="noreferrer">
+        <img src="images/linkedin.png" alt="LinkedIn" className={socialImgClasses} style={socialImgStyles} />
+      </a>
+      <a href="https://github.com/pradeep652227" target="_blank" rel="noreferrer">
+        <img src="images/github.png" alt="GitHub" className={socialImgClasses} style={socialImgStyles} />
+      </a>
+      <a href="https://leetcode.com/u/ps652227/" target="_blank" rel="noreferrer">
+        <img src="images/leetcode.png" alt="LeetCode" className={socialImgClasses} style={socialImgStyles} />
+      </a>
+      <a href="https://www.geeksforgeeks.org/user/pradeep_/" target="_blank" rel="noreferrer">
+        <img src="images/twitter.png" alt="X" className={socialImgClasses} style={socialImgStyles} />
+      </a>
     </div>
-  );
+  </div>
+)
+
+// ----- Achievements Component -----
+const Achievements = () => (
+  <div className="mt-6">
+    <ul className="space-y-3">
+      {[
+        "1+ year of professional experience in backend development",
+        "10+ projects covering full stack tech stacks",
+        "200+ DSA problems solved",
+        "Expert in scalable and secure system design",
+        "Strong teamwork and leadership skills",
+      ].map((item, index) => (
+        <li
+          key={index}
+          className="flex items-center text-sm text-gray-600 border border-indigo-200 rounded-lg p-2 hover:bg-indigo-600 hover:text-white transition duration-300"
+        >
+          <span className="inline-block w-3 h-3 bg-indigo-500 rounded-full mr-2" />
+          {item}
+        </li>
+      ))}
+    </ul>
+  </div>
+)
+
+// ----- Home Component -----
+export default function Home() {
+  return (
+    <div className="min-h-screen font-sans bg-gray-50 text-gray-800">
+      {/* Main Content in Grid */}
+      <main className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 justify-center gap-4">
+        {/* Left Column (Profile / Title) */}
+        <div className="bg-white p-6 shadow-md rounded-lg flex flex-col justify-center items-center">
+          {/* Circular Image Placeholder */}
+          <div className="w-32 h-32 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 p-1 mb-4 shadow-md">
+            <img src="images/profile_pic.jpg" alt="Profile" className="w-full h-full object-cover rounded-full" />
+          </div>
+          <h1 className="text-2xl font-bold mb-2 text-indigo-700">Pradeep Gaur</h1>
+          <p className="text-md text-gray-600 mb-4 text-center">
+            Professional Backend Developer | Building Scalable & Secure Full-Stack Applications
+          </p>
+          <button className="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition duration-300 text-sm font-medium">
+            Hire Me
+          </button>
+        </div>
+
+        {/* Center Column (Hero Info) */}
+        <div className="bg-white p-6 shadow-md rounded-lg flex flex-col justify-center">
+          <p className="text-md text-gray-600 mb-4 text-justify">
+            Software Developer specializing in backend development with expertise in NodeJS, ExpressJS, and MongoDB.
+            Proficient in crafting full-stack web applications using the front-end technologies such as ReactJS. I excel
+            at tackling complex challenges with strong problem-solving abilities and a solid grasp of OOP principles. A
+            strong advocate for teamwork, I believe that collaboration leads to greater success and drives company
+            growth.
+          </p>
+          <button className="px-4 py-2 border-2 border-indigo-600 text-indigo-600 rounded-lg hover:bg-indigo-600 hover:text-white transition duration-300 text-sm font-medium">
+            <a
+              href="https://drive.google.com/file/d/1-xvRAwofX4BrRhOhS0n056LJDS7fCDjM/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Resume
+            </a>
+          </button>
+        </div>
+
+        {/* Right Column (Social Links) */}
+        <div className="bg-white p-6 shadow-md rounded-lg flex flex-col justify-center">
+          <SocialLinks />
+          <Achievements />
+        </div>
+      </main>
+
+      {/* Lower Section with Experience, Projects, and Contact */}
+      <section className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <ExperienceSection />
+        <ProjectsSection />
+        <ContactSection />
+      </section>
+    </div>
+  )
 }
+
