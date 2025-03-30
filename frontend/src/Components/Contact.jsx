@@ -2,7 +2,9 @@
 
 import { useState } from "react"
 import { FaLinkedin, FaGithub, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa"
+const backendUrl = String(import.meta.env.VITE_BACKEND_URL);
 
+console.log('((((((()))))))) BACKEND URL ', backendUrl);
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -34,7 +36,7 @@ const Contact = () => {
     setLoading(true) // ✅ Show loader when submitting
 
     try {
-      const response = await fetch("http://localhost:3000/send-email", {
+      const response = await fetch(backendUrl+"/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
