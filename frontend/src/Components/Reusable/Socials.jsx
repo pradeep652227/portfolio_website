@@ -1,10 +1,8 @@
-/* eslint-disable react/prop-types */
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
-export default function Socials({imagesStylesObj,imagesDivClassesProp="py-2",className = "", ...props }) {
-  const imagesStyles = imagesStylesObj || {width:"30px"};
-  const imagesDivClasses = `rounded-md p-2 bg-slate-50 hover:bg-gray-200 duration-200 hover:shadow-xl ${imagesDivClassesProp}`;
+export default function Socials({ imagesStylesObj, imagesDivClassesProp = "py-2", className = "", ...props }) {
+  const imagesStyles = imagesStylesObj || { width: "30px" }
+  const imagesDivClasses = `rounded-md p-2 bg-slate-50 hover:bg-gray-200 duration-200 hover:shadow-xl ${imagesDivClassesProp}`
   return (
     <div className={`socials flex flex-wrap gap-1 ${className}`} {...props}>
       <Link to="https://www.linkedin.com/in/pradeep-gaur-0384331a1/">
@@ -23,5 +21,6 @@ export default function Socials({imagesStylesObj,imagesDivClassesProp="py-2",cla
         </div>
       </Link>
     </div>
-  );
+  )
 }
+
