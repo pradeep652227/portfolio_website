@@ -44,10 +44,17 @@ const Experience = () => {
       company: "Self-Employed",
       duration: "2023 - 2024",
       description: [
+<<<<<<< HEAD
         "Worked as a freelance developer and content writer for a travel website with their blog section.",
         "Practiced numerous problems on Leetcode and GeeksforGeeks, enhancing problem-solving skills.",
         "Developed and deployed multiple full-stack applications using React, Next.js, and Node.js.",
       ],
+=======
+        "Developed and deployed multiple <strong>full-stack applications</strong> using <strong>React, Next.js, and Node.js</strong>.",
+        "Designed <strong>scalable database structures</strong> and optimized frontend performance.",
+      ],
+      skills: ["React.js", "Next.js", "Node.js", "MongoDB", "REST APIs"],
+>>>>>>> theme-3
       logo: "freelance.jpg",
     },
   ]
