@@ -57,6 +57,8 @@ const sendMail = async (formData) => {
 app.post("/send-email", async (req, res) => {
   try {
       const formData = req.body;
+      console.log('((((((((((((((((( USER :- ', process.env.USER);
+      console.log('((((((((((((((((( PASSWORD :- ', process.env.PASSWORD);
       await sendMail(formData);
       res.status(200).json({ success: true, message: "Email sent successfully" });
   } catch (error) {
@@ -66,7 +68,7 @@ app.post("/send-email", async (req, res) => {
 
 // GET request for testing
 app.get("/", (req, res) => {
-  res.send("Hi, Server is running");
+  res.send("Hi, Server is running for sendign emails");
 });
 
 // Start server
