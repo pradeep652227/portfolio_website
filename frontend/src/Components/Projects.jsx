@@ -44,6 +44,10 @@ const frontendImages = [
     name: "Redux",
   },
   {
+    address: "https://img.icons8.com/color/100/recoil-js.png",
+    name: "Recoil",
+  },
+  {
     address: "https://img.icons8.com/color/100/tailwindcss.png",
     name: "TailwindCSS",
   },
@@ -119,7 +123,8 @@ const SkillsSection = () => (
 const projects = [
   {
     title: "Paytm-clone",
-    description: "A Fintech Web App created with focus on handling transactions in MongoDB and concurrency.",
+    description:
+      "A Fintech Web App created with focus on handling transactions in MongoDB and concurrency.",
     image: "paytm-clone.png",
     technologies: ["React JS", "Node JS", "Express JS", "MongoDB"],
     // link: "https://blog-app-frontend-gray.vercel.app/",
