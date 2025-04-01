@@ -4,7 +4,6 @@ import { useState } from "react"
 import { FaLinkedin, FaGithub, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa"
 const backendUrl = String(import.meta.env.VITE_BACKEND_URL);
 
-console.log('((((((()))))))) BACKEND URL ', backendUrl);
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -48,7 +47,7 @@ const Contact = () => {
         setSuccessMessage("Message sent successfully!");
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
-        setError(data.error || "Failed to send the message.");
+        setError("Failed to send the message.");
       }
     } catch (error) {
       setError("An error occurred. Please try again later.");

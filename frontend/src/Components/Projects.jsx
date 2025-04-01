@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
+import { useState } from "react";
+import { motion } from "framer-motion";
 
-const skillsImgsStyles = { width: "80px" }
+const skillsImgsStyles = { width: "80px" };
 const skillsImgsClasses =
-  "p-2 rounded-xl w-fit shadow-lg hover:shadow-2xl duration-200 shadow-gray-500 flex flex-col items-center"
+  "p-2 rounded-xl w-fit shadow-lg hover:shadow-2xl duration-200 shadow-gray-500 flex flex-col items-center";
 
 const backendImages = [
   {
@@ -33,7 +33,7 @@ const backendImages = [
     address: "https://img.icons8.com/color/100/microsoft-sql-server.png",
     name: "MS SQL Server",
   },
-]
+];
 
 const frontendImages = [
   { address: "https://img.icons8.com/color/100/nextjs.png", name: "NextJS" },
@@ -55,18 +55,25 @@ const frontendImages = [
     address: "https://img.icons8.com/color/100/git.png",
     name: "Git",
   },
-]
+];
 
 const SkillsSection = () => (
   <section className="max-w-6xl mx-auto px-4 py-8">
-    <h1 className="text-4xl text-center font-bold py-2 text-indigo-700">Skills</h1>
+    <h1 className="text-4xl text-center font-bold py-2 text-indigo-700">
+      Skills
+    </h1>
     <div className="rounded-xl mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
       {/* Backend Skills */}
       <div>
-        <h2 className="text-xl font-semibold text-center mb-4 text-indigo-600">Backend & Databases</h2>
+        <h2 className="text-xl font-semibold text-center mb-4 text-indigo-600">
+          Backend & Databases
+        </h2>
         <div className="flex flex-wrap justify-center gap-6">
           {backendImages.map((image) => (
-            <div key={image.name} className={skillsImgsClasses + " bg-white hover:bg-gray-50"}>
+            <div
+              key={image.name}
+              className={skillsImgsClasses + " bg-white hover:bg-gray-50"}
+            >
               <img
                 style={skillsImgsStyles}
                 src={image.address || "/placeholder.svg"}
@@ -83,10 +90,15 @@ const SkillsSection = () => (
 
       {/* Frontend & Other Skills */}
       <div>
-        <h2 className="text-xl font-semibold text-center mb-4 text-indigo-600">Frontend & Tools</h2>
+        <h2 className="text-xl font-semibold text-center mb-4 text-indigo-600">
+          Frontend & Tools
+        </h2>
         <div className="flex flex-wrap justify-center gap-6">
           {frontendImages.map((image) => (
-            <div key={image.name} className={skillsImgsClasses + " bg-white hover:bg-gray-50"}>
+            <div
+              key={image.name}
+              className={skillsImgsClasses + " bg-white hover:bg-gray-50"}
+            >
               <img
                 style={skillsImgsStyles}
                 src={image.address || "/placeholder.svg"}
@@ -102,9 +114,18 @@ const SkillsSection = () => (
       </div>
     </div>
   </section>
-)
+);
 // Updated projects data
 const projects = [
+  {
+    title: "Paytm-clone",
+    description: "A Fintech Web App created with focus on handling transactions in MongoDB and concurrency.",
+    image: "paytm-clone.png",
+    technologies: ["React JS", "Node JS", "Express JS", "MongoDB"],
+    // link: "https://blog-app-frontend-gray.vercel.app/",
+    // isLive: true,
+    code: "https://github.com/pradeep652227/paytm-clone",
+  },
   {
     title: "Blogify",
     description:
@@ -145,16 +166,18 @@ const projects = [
     isLive: false,
     code: "https://github.com/pradeep652227/Authentication-And-Security",
   },
-]
+];
 
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState(null)
+  const [selectedProject, setSelectedProject] = useState(null);
 
   return (
     <section className="py-16 px-6 max-w-6xl mx-auto bg-gray-50">
       <SkillsSection />
 
-      <h2 className="text-4xl font-bold text-center text-indigo-700 mb-12">Projects</h2>
+      <h2 className="text-4xl font-bold text-center text-indigo-700 mb-12">
+        Projects
+      </h2>
 
       {/* Grid Layout for Projects */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -162,7 +185,10 @@ const Projects = () => {
           <motion.div
             key={index}
             className="relative bg-white p-4 rounded-lg shadow-md overflow-hidden flex flex-col h-100"
-            whileHover={{ scale: 1.03, boxShadow: "0 10px 25px -5px rgba(79, 70, 229, 0.2)" }}
+            whileHover={{
+              scale: 1.03,
+              boxShadow: "0 10px 25px -5px rgba(79, 70, 229, 0.2)",
+            }}
           >
             {/* Project Image */}
             <img
@@ -172,12 +198,17 @@ const Projects = () => {
             />
 
             {/* Project Title */}
-            <h3 className="text-lg font-bold text-indigo-700">{project.title}</h3>
+            <h3 className="text-lg font-bold text-indigo-700">
+              {project.title}
+            </h3>
 
             {/* Technologies */}
             <div className="flex flex-wrap gap-2 mt-2">
               {project.technologies.map((tech, i) => (
-                <span key={i} className="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-xs">
+                <span
+                  key={i}
+                  className="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-xs"
+                >
                   {tech}
                 </span>
               ))}
@@ -217,22 +248,36 @@ const Projects = () => {
           >
             {/* Modal Header */}
             <div className="flex justify-between items-center">
-              <h3 className="text-2xl font-bold text-indigo-700">{selectedProject.title}</h3>
-              <button onClick={() => setSelectedProject(null)} className="text-gray-500 hover:text-gray-800">
+              <h3 className="text-2xl font-bold text-indigo-700">
+                {selectedProject.title}
+              </h3>
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="text-gray-500 hover:text-gray-800"
+              >
                 ✕
               </button>
             </div>
 
             {/* Modal Content */}
             <p className="text-gray-700 mt-2">{selectedProject.description}</p>
-            <img src={`images/${selectedProject.image}`} alt={selectedProject.title} className="mt-4 rounded-lg" />
+            <img
+              src={`images/${selectedProject.image}`}
+              alt={selectedProject.title}
+              className="mt-4 rounded-lg"
+            />
 
             {/* Technologies Used */}
             <div className="mt-4">
-              <h4 className="font-semibold text-indigo-600">Technologies Used:</h4>
+              <h4 className="font-semibold text-indigo-600">
+                Technologies Used:
+              </h4>
               <div className="flex flex-wrap gap-2 mt-2">
                 {selectedProject.technologies.map((tech, i) => (
-                  <span key={i} className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded text-sm">
+                  <span
+                    key={i}
+                    className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded text-sm"
+                  >
                     {tech}
                   </span>
                 ))}
@@ -264,8 +309,7 @@ const Projects = () => {
         </div>
       )}
     </section>
-  )
-}
+  );
+};
 
-export default Projects
-
+export default Projects;
